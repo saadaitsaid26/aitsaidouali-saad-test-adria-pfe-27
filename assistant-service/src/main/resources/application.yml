@@ -1,0 +1,7 @@
+# assistant-service : configuration minimale (squelette P1)
+spring:
+  application:
+    name: assistant-service
+
+server:
+  port: 8083

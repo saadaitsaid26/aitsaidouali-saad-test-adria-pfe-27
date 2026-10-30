@@ -1,0 +1,7 @@
+# config-service : configuration minimale (squelette P1)
+spring:
+  application:
+    name: config-service
+
+server:
+  port: 8888

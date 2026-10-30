@@ -1,0 +1,7 @@
+# event-consumer-service : configuration minimale (squelette P1)
+spring:
+  application:
+    name: event-consumer-service
+
+server:
+  port: 8084

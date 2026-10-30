@@ -1,0 +1,7 @@
+# transaction-service : configuration minimale (squelette P1)
+spring:
+  application:
+    name: transaction-service
+
+server:
+  port: 8082

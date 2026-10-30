@@ -1,0 +1,7 @@
+# discovery-service : configuration minimale (squelette P1)
+spring:
+  application:
+    name: discovery-service
+
+server:
+  port: 8761
