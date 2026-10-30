@@ -23,6 +23,9 @@ public interface AccountService {
     /** Renvoie un compte par son id, ou échoue avec 404. */
     AccountResponse getAccount(UUID id);
 
+    /** Renvoie un compte par sa référence client métier, ou échoue avec 404 (référence dans le message). */
+    AccountResponse getAccountByCustomerReference(String customerReference);
+
     /** Renvoie le solde compact d'un compte, ou échoue avec 404. */
     BalanceResponse getBalance(UUID id);
 

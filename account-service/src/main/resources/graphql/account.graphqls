@@ -1,0 +1,33 @@
+# Schéma GraphQL du account-service (P5) — auto-détecté par Spring Boot depuis classpath:graphql/*.graphqls
+# Une seule couche service (AccountService) derrière toutes les opérations.
+# Requête de test : POST /graphql sur 8081 ; interface GraphiQL sur /graphiql.
+
+type Account {
+    id: ID!
+    customerReference: String!
+    status: AccountStatus!
+    currency: String!
+    balance: Float!
+}
+
+enum AccountStatus {
+    ACTIVE
+    BLOCKED
+}
+
+input CreateAccountInput {
+    customerReference: String!
+    currency: String!
+    initialBalance: Float
+}
+
+type Query {
+    accounts: [Account!]!
+    accountById(id: ID!): Account!
+    accountByCustomerReference(customerReference: String!): Account!
+}
+
+type Mutation {
+    createAccount(account: CreateAccountInput!): Account!
+    updateAccountStatus(id: ID!, status: AccountStatus!): Account!
+}

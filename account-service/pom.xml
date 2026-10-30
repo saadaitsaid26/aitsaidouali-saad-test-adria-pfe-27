@@ -51,6 +51,16 @@
       <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
       <version>2.8.17</version>
     </dependency>
+    <!-- Couche GraphQL (Spring for GraphQL) :même couche service que REST/P5 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-graphql</artifactId>
+    </dependency>
+    <!-- Serveur MCP Spring AI : transport WebMVC SSE (version gérée par spring-ai-bom 1.1.8) -->
+    <dependency>
+      <groupId>org.springframework.ai</groupId>
+      <artifactId>spring-ai-starter-mcp-server-webmvc</artifactId>
+    </dependency>
     <!-- Versement DTO sans boilerplate (P4) -->
     <dependency>
       <groupId>org.projectlombok</groupId>
@@ -62,6 +72,12 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- Tests slice GraphQL : @GraphQlTest + GraphQlTester (version gérée par Boot BOM) -->
+    <dependency>
+      <groupId>org.springframework.graphql</groupId>
+      <artifactId>spring-graphql-test</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

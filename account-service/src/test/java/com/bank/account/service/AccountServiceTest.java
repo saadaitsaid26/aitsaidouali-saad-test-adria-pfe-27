@@ -100,6 +100,27 @@ class AccountServiceTest {
     }
 
     @Test
+    void getAccountByCustomerReferenceReturnsMappedResponse() {
+        Account entity = account(UUID.randomUUID(), AccountStatus.ACTIVE, 123.45);
+        when(accountRepository.findByCustomerReference("ACC-001")).thenReturn(Optional.of(entity));
+
+        AccountResponse response = accountService.getAccountByCustomerReference("ACC-001");
+
+        assertThat(response.customerReference()).isEqualTo("ACC-001");
+        assertThat(response.status()).isEqualTo("ACTIVE");
+        assertThat(response.balance()).isCloseTo(123.45, within(0.0001));
+    }
+
+    @Test
+    void getAccountByCustomerReferenceUnknownThrowsWithReferenceInMessage() {
+        when(accountRepository.findByCustomerReference("ACC-404")).thenReturn(Optional.empty());
+
+        assertThatThrownBy(() -> accountService.getAccountByCustomerReference("ACC-404"))
+                .isInstanceOf(AccountNotFoundException.class)
+                .hasMessageContaining("ACC-404");
+    }
+
+    @Test
     void applyBalanceOperationCreditAddsAndRoundsToTwoDecimals() {
         UUID accountId = UUID.randomUUID();
         Account entity = account(accountId, AccountStatus.ACTIVE, 10.005);

@@ -73,6 +73,15 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     @Transactional(readOnly = true)
+    public AccountResponse getAccountByCustomerReference(String customerReference) {
+        log.info("Lecture du compte par référence client {}", customerReference);
+        return accountRepository.findByCustomerReference(customerReference)
+                .map(AccountMapper::toResponse)
+                .orElseThrow(() -> new AccountNotFoundException(customerReference));
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public BalanceResponse getBalance(UUID id) {
         Account account = findExisting(id);
         return new BalanceResponse(account.getId(), account.getStatus().name(), account.getBalance());
