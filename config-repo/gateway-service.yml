@@ -1,0 +1,4 @@
+# Configuration specifique gateway-service (le partage vient de application.yml)
+logging:
+  level:
+    com.bank.gateway: INFO

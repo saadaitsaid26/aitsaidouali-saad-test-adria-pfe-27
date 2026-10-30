@@ -1,9 +1,11 @@
-// Application principale du discovery-service (examen ADRIA/ENSET, P1)
+// Application principale du discovery-service (examen ADRIA/ENSET, P3)
 package com.bank.discovery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
+@EnableEurekaServer
 @SpringBootApplication
 public class DiscoveryServiceApplication {
 

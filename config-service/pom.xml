@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- config-service (port 8888) : Spring Cloud Config Server (squelette P1) -->
+<!-- config-service (port 8888) : Spring Cloud Config Server (profil native -> config-repo/)
+     + inscription Eureka comme les autres services -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -15,8 +16,12 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter</artifactId>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-config-server</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>

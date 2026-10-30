@@ -1,0 +1,12 @@
+# Configuration PARTAGEE par tous les services clients (servie par config-service).
+# bank.transaction.max-amount: 1000  (equivalent = bank.transaction.max-amount=1000)
+bank:
+  transaction:
+    max-amount: 1000
+
+# Endpoints d'observation communs
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,refresh
