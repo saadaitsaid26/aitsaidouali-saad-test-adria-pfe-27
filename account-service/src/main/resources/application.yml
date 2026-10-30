@@ -1,9 +1,23 @@
-# account-service : client Config + Eureka (P3)
+# account-service : client Config + Eureka (P3) + datasource H2 JPA (P4)
 spring:
   application:
     name: account-service
   config:
     import: optional:configserver:${CONFIG_URI:http://localhost:8888}
+  datasource:
+    # Base H2 en mémoire dédiée aux comptes
+    url: jdbc:h2:mem:accounts
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
 
 server:
   port: 8081
@@ -14,3 +28,8 @@ eureka:
       defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
   instance:
     prefer-ip-address: true
+
+# Documentation OpenAPI / Swagger UI
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
